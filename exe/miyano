@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require "miyano/cli"
+require "miyano/cli/init"
+Miyano::CLI::Base.start
