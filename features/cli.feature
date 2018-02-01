@@ -1,10 +1,10 @@
-Feature: Miyano Cli init
+Feature: Miyano Cli
 
   Scenario: Show version
     When I run `miyano version`
     Then the output should contain "Miyano 0.1"
 
-  Scenario: Create a new project
+  Scenario: Create and Build a new project
     When I run `miyano init PROJECT`
     Then the exit status should be 0
     #And the output should contain "asdf"
@@ -13,9 +13,12 @@ Feature: Miyano Cli init
       | Gemfile               |
       | .gitignore            |
       | config.rb             |
-      | post/welcome.md       |
+      | post/welcome.html     |
       | layout/index.html.erb |
-      | layout/post.html.erb  |
-      | layout/tag.html.erb   |
-      | layout/site.css.scss  |
-
+      | layout/default.css.scss  |
+    And I run `miyano build`
+    Then the following files should exist:
+      | site/default.css           |
+      | site/index.html            |
+      | site/Miyano_0.1/index.html |
+      | site/welcome/index.html    |

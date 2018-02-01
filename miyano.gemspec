@@ -33,7 +33,10 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec", "~> 3.0"
   spec.add_development_dependency "cucumber", "~> 3.1.0"
   spec.add_development_dependency "aruba", "~> 0.14.3"
-  spec.add_development_dependency "pry"
 
   spec.add_dependency "thor"
+  spec.add_dependency "kramdown"
+  spec.add_dependency "nokogiri"
+  spec.add_dependency "sass"
+  spec.add_dependency "tilt"
 end

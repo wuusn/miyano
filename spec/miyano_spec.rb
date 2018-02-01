@@ -1,32 +1,60 @@
 require "spec_helper"
 
 RSpec.describe Miyano do
+
+  site = Miyano.site
+
   it "has a version number" do
     expect(Miyano::VERSION).not_to be nil
   end
 
-  it "does something useful" do
-    expect(true).to eq(true)
+  it "has a site variable" do
+    expect(Miyano.site).not_to be nil
   end
 
-  it "can read file from config.rb" do
-
+  it "can render html and send post to site" do
+    Miyano::Renderer::Post("tmp/post/example.html")
+    post = Miyano.site.posts.first
+    expect(post.name).to eql "example"
+    expect(post.title).to eql "kramdown test example"
+    expect(post.cre_date.strftime("%Y-%m-%d %H")).to\
+                                      eql "2018-01-28 18"
+    expect(post.mod_date.strftime("%Y-%m-%d %H")).to\
+                                      eql "2018-01-28 21"
   end
 
-  it "has a site variable contain all data\
-      about this blog" do
-    site = Miyano::Site.new
-    expect(site).not_to be nil
+  it "can generate html from post" do
+    post = site.posts.first
+    Miyano::Generator::Post(post, "tmp/site")
+    expect(File.file?("tmp/site/example/index.html")).to eql true
   end
 
-  it "can get tags from html" do
-    tags = Miyano::Util.get_tags "example.html"
-    expect(tags).not_to be nil
+  it "can render template erb" do
+    require "tilt/erb"
+    template = Tilt::ERBTemplate.new("tmp/layout/index.html.erb")
+    class Site
+      attr_accessor :post
+    end
+    site = Site.new
+    site.post = "hello world"
+    output = template.render(site)
+    expect(output).to eql "hello world"
   end
 
-  it "can get tags from markdown" do
-    tags = Miyano::Util.get_tags "example.md"
-    expect(tags).not_to be nil
+  it "can render template scss" do
+    #require "sass"
+    require "tilt/sass"
+    path = "tmp/layout/default.css.scss"
+    template = Tilt::ScssTemplate.new path
+    css_path="tmp/site/#{File.basename(path, ".scss")}"
+    File.open(css_path, "w") do |f|
+      f.write template.render
+    end
+    expect(File.file?(css_path)).to eql true
   end
 
 end
+
+
+
+

@@ -1,4 +1,6 @@
 #!/usr/bin/env ruby
 require "miyano/cli"
 require "miyano/cli/init"
+require "miyano/cli/build"
+require "miyano/cli/serve"
 Miyano::CLI::Base.start

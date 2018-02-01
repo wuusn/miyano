@@ -1,5 +1,4 @@
 require "thor"
-require "miyano"
 
 module Miyano
   module CLI
