@@ -3,4 +3,5 @@ require "miyano/cli"
 require "miyano/cli/init"
 require "miyano/cli/build"
 require "miyano/cli/serve"
+require "miyano/cli/clean"
 Miyano::CLI::Base.start

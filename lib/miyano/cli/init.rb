@@ -11,7 +11,7 @@ module Miyano
         run "git clone --depth 1 #{url} #{dirname}"
       end
 
-      Base.register(self, "init", "init [dirname]",
+      Base.register(self, "init", "init [DIR]",
                     "create new project at dirname")
       Base.map(
         "i" => "init",

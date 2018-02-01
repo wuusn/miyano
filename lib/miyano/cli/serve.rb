@@ -3,7 +3,7 @@ require "webrick"
 
 module Miyano
   module CLI
-    class serve < Thor::Group
+    class Serve < Thor::Group
       include Thor::Actions
 
       def serve
@@ -12,6 +12,8 @@ module Miyano
         trap "INT" do server.shutdown end
         server.start
       end
+
+      Base.register(self, "serve", "serve", "start a local web server")
     end
   end
 end
