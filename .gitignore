@@ -6,7 +6,13 @@
 /pkg/
 /spec/reports/
 /tmp/
-.DS_Store
 
 # rspec failure tracking
 .rspec_status
+
+# add
+/.sass-cache/
+.DS_Store
+.rspec
+/bin/
+Gemfile.lock
