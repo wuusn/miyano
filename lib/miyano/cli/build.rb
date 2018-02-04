@@ -19,10 +19,9 @@ module Miyano
       end
 
       def config_site
+        site = Miyano.site
         # sort posts
-        site.posts.sort! do |a,b|
-          a.mod_date >= b.mod_date
-        end
+        site.sort!
       end
 
       def build_templates

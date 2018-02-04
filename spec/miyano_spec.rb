@@ -32,12 +32,12 @@ RSpec.describe Miyano do
   it "can render template erb" do
     require "tilt/erb"
     template = Tilt::ERBTemplate.new("tmp/layout/index.html.erb")
-    class Site
+    class Test
       attr_accessor :post
     end
-    site = Site.new
-    site.post = "hello world"
-    output = template.render(site)
+    test = Test.new
+    test.post = "hello world"
+    output = template.render(test)
     expect(output).to eql "hello world"
   end
 
@@ -51,6 +51,13 @@ RSpec.describe Miyano do
       f.write template.render
     end
     expect(File.file?(css_path)).to eql true
+  end
+
+  it "can sort site.posts" do
+    Miyano::Renderer::Post("tmp/post/new.html")
+    expect(site.posts[0].mod_date > site.posts[1].mod_date).to eql false
+    site.sort!
+    expect(site.posts[0].mod_date > site.posts[1].mod_date).to eql true
   end
 
 end

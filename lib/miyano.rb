@@ -17,6 +17,11 @@ module Miyano
       @posts = []
     end
 
+    def sort!
+      @posts.sort_by! {|a| [a.mod_date, a.cre_date] }
+      @posts.reverse!
+    end
+
 #    def add_post(post)
 #      @posts << post
 #    end
