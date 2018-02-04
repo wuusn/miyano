@@ -26,7 +26,8 @@ module Miyano
     attr_reader :title, :cre_date, :mod_date, :url, :html, :name
     def initialize(name, title, cre_date, mod_date, html)
       @name, @title, @cre_date, @mod_date, @html = name, title, cre_date, mod_date, html
-      @url = "site/#{name}/index.html"
+      #@path = "site/#{name}index.html"
+      @url = @name
     end
   end
 

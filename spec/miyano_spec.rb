@@ -20,7 +20,7 @@ RSpec.describe Miyano do
     expect(post.cre_date.strftime("%Y-%m-%d %H")).to\
                                       eql "2018-01-28 18"
     expect(post.mod_date.strftime("%Y-%m-%d %H")).to\
-                                      eql "2018-01-28 21"
+                                      eql "2018-02-04 12"
   end
 
   it "can generate html from post" do

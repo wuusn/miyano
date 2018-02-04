@@ -13,7 +13,7 @@ module Miyano
 
         if type == ".html"
           doc = Nokogiri::HTML(File.open(path))
-          h1 = doc.css("h1").first.content
+          h1 = doc.css("title").first.content
           # change file path
           # TODO
         elsif type == (".md" || ".markdown")
