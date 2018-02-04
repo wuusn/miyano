@@ -18,6 +18,13 @@ module Miyano
         end
       end
 
+      def config_site
+        # sort posts
+        site.posts.sort! do |a,b|
+          a.mod_date >= b.mod_date
+        end
+      end
+
       def build_templates
         files = Dir["layout/*"]
         files.each do |file|
