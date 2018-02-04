@@ -60,6 +60,11 @@ RSpec.describe Miyano do
     expect(site.posts[0].mod_date > site.posts[1].mod_date).to eql true
   end
 
+  it "fix the modified time from post" do
+    post = Miyano::Post.new "tmp/post/3year.html"
+    expect(post.mod_date.strftime("%Y-%m-%d %H")).to eql "2017-11-29 15"
+  end
+
 end
 
 

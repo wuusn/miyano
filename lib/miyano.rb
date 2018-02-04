@@ -29,9 +29,22 @@ module Miyano
 
   class Post
     attr_reader :title, :cre_date, :mod_date, :url, :html, :name
-    def initialize(name, title, cre_date, mod_date, html)
-      @name, @title, @cre_date, @mod_date, @html = name, title, cre_date, mod_date, html
-      #@path = "site/#{name}index.html"
+    def initialize(path)
+      cre_date = File.birthtime(path)
+      mod_date = File.mtime(path)
+      name = File.basename(path, ".*").gsub(/\s+/, '_')
+      type = File.extname(path)
+
+      if type == ".html"
+        doc = Nokogiri::HTML(File.open(path))
+        title = doc.css("title").first.content
+        # change file path
+        # TODO
+      elsif type == (".md" || ".markdown")
+        # TODO
+      end
+
+      @name, @title, @cre_date, @mod_date, @html = name, title, cre_date, mod_date, doc
       @url = @name
     end
   end

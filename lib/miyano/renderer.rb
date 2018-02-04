@@ -5,22 +5,7 @@ module Miyano
   module Renderer
     class << self
       def Post(path)
-        # file info
-        cre_date = File.birthtime(path)
-        mod_date = File.ctime(path)
-        name = File.basename(path, ".*").gsub(/\s+/, '_')
-        type = File.extname(path)
-
-        if type == ".html"
-          doc = Nokogiri::HTML(File.open(path))
-          h1 = doc.css("title").first.content
-          # change file path
-          # TODO
-        elsif type == (".md" || ".markdown")
-          # TODO
-        end
-
-        post = Miyano::Post.new(name, h1, cre_date, mod_date, doc)
+        post = Miyano::Post.new path
         Miyano.site.posts << post
       end
 
