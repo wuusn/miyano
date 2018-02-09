@@ -20,13 +20,13 @@ RSpec.describe Miyano do
     expect(post.cre_date.strftime("%Y-%m-%d %H")).to\
                                       eql "2018-01-28 18"
     expect(post.mod_date.strftime("%Y-%m-%d %H")).to\
-                                      eql "2018-02-04 12"
+                                      eql "2018-02-06 15"
   end
 
   it "can generate html from post" do
     post = site.posts.first
-    Miyano::Generator::Post(post, "tmp/site")
-    expect(File.file?("tmp/site/example/index.html")).to eql true
+    Miyano::Generator::Post(post, "tmp/_site")
+    expect(File.file?("tmp/_site/example/index.html")).to eql true
   end
 
   it "can render template erb" do
@@ -46,7 +46,7 @@ RSpec.describe Miyano do
     require "tilt/sass"
     path = "tmp/layout/default.css.scss"
     template = Tilt::ScssTemplate.new path
-    css_path="tmp/site/#{File.basename(path, ".scss")}"
+    css_path="tmp/_site/#{File.basename(path, ".scss")}"
     File.open(css_path, "w") do |f|
       f.write template.render
     end
@@ -63,6 +63,18 @@ RSpec.describe Miyano do
   it "fix the modified time from post" do
     post = Miyano::Post.new "tmp/post/3year.html"
     expect(post.mod_date.strftime("%Y-%m-%d %H")).to eql "2017-11-29 15"
+  end
+
+  it "can show post's time in correct way" do
+    post = Miyano::Post.new "tmp/post/3year.html"
+    expect(post.time).to eql "Nov 29,2017"
+    post = Miyano::Post.new "tmp/post/new.html"
+    expect(post.time).to eql "Feb 9"
+  end
+
+  it "has summary of post" do
+    post = Miyano::Post.new "tmp/post/new.html"
+    expect(post.summary.empty?).to eql true
   end
 
 end

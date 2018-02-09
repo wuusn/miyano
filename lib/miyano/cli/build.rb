@@ -14,7 +14,7 @@ module Miyano
         end
 
         Miyano.site.posts.each do |post|
-          Miyano::Generator.Post post, "site"
+          Miyano::Generator.Post post, "_site"
         end
       end
 
@@ -25,10 +25,14 @@ module Miyano
       end
 
       def build_templates
-        files = Dir["layout/*"]
+        #files = Dir["layout/*"]
+        files =[]
+        files << "layout/default.css.scss"
+        files << "layout/index.html.erb"
+        #files << "layout/about.html.erb"
         files.each do |file|
           template = Miyano::Renderer.Template file
-          Miyano::Generator.Template template, "site"
+          Miyano::Generator.Template template, "_site"
         end
       end
 

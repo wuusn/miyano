@@ -28,7 +28,7 @@ module Miyano
   end
 
   class Post
-    attr_reader :title, :cre_date, :mod_date, :url, :html, :name
+    attr_reader :title, :cre_date, :mod_date, :url, :html, :name, :summary
     def initialize(path)
       cre_date = File.birthtime(path)
       mod_date = File.mtime(path)
@@ -38,6 +38,7 @@ module Miyano
       if type == ".html"
         doc = Nokogiri::HTML(File.open(path))
         title = doc.css("title").first.content
+        @summary = ""
         # change file path
         # TODO
       elsif type == (".md" || ".markdown")
@@ -46,6 +47,15 @@ module Miyano
 
       @name, @title, @cre_date, @mod_date, @html = name, title, cre_date, mod_date, doc
       @url = @name
+    end
+    def time
+      if Date.today.year == @mod_date.year
+        @mod_date.strftime "%b %-d"
+      elsif Date.today.year > @mod_date.year
+        @mod_date.strftime "%b %-d,%Y"
+      else
+        "Future!"
+      end
     end
   end
 

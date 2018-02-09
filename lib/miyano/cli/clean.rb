@@ -6,7 +6,7 @@ module Miyano
       include Thor::Actions
 
       def delete
-        FileUtils.rm_rf "site"
+        FileUtils.rm_rf "_site"
       end
 
       Base.register(self, "clean", "clean", "clean site files")

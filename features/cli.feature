@@ -21,12 +21,12 @@ Feature: Miyano Cli
       #    When I cd to "PROJECT"
     And I run `miyano build`
     Then the following files should exist:
-      | site/default.css           |
-      | site/index.html            |
-      | site/Miyano_0.1/index.html |
-      | site/welcome/index.html    |
+      | _site/default.css           |
+      | _site/index.html            |
+      | _site/Miyano_0.1/index.html |
+      | _site/welcome/index.html    |
 
   #Scenario: Clean the build site files
     #When I cd to "PROJECT"
     And I run `miyano clean`
-    Then the directory "site" should not exist
+    Then the directory "_site" should not exist
