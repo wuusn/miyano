@@ -46,7 +46,7 @@ module Miyano
       end
 
       @name, @title, @cre_date, @mod_date, @html = name, title, cre_date, mod_date, doc
-      @url = @name
+      @url = "/#{@name}/"
     end
     def time
       if Date.today.year == @mod_date.year
