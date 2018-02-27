@@ -1,6 +1,5 @@
 module Miyano
   class Build < Thor::Group
-
     def check_root
       unless Dir.exist?("post") and Dir.exist?("layout")
         fail "!!wrong dirctory"
@@ -16,7 +15,7 @@ module Miyano
     end
 
     def build
-      build_the_world
+      Builder.new.build_the_world
     end
   end
 end

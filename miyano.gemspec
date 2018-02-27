@@ -1,4 +1,3 @@
-
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "miyano/version"
@@ -9,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["wuusn"]
   spec.email         = ["wuusin@gmail.com"]
 
-  spec.summary       = %q{A tag-based mini-blog system on Github Pages.}
+  spec.summary       = %q{A Bear Note Blog system depoly on Github Pages.}
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -40,4 +39,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "sass"
   spec.add_dependency "tilt"
   spec.add_dependency "rubyzip"
+  # sepc.add_dependency "beardown"
 end

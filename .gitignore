@@ -16,5 +16,4 @@
 .rspec
 /bin/
 Gemfile.lock
-/post/
-/layout/
+/_site/

@@ -12,7 +12,7 @@ module Miyano
     desc "new [DIR]", "create new blog"
     def new(dir)
       url = "https://github.com/wuusn/miyano_template.git"
-      run "git clone --depth 1 #{url} #{dir}"
+      `git clone --depth 1 #{url} #{dir}`
     end
 
     desc "try", "try as a local web server"

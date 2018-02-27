@@ -2,6 +2,12 @@ module Miyano
   class Push < Thor::Group
     @dir = "_site".freeze
 
+    def check_root
+      unless Dir.exist?("post") and Dir.exist?("layout")
+         fail "!!wrong dirctory"
+      end
+    end
+
     def check_if_first
       unless Dir.exits? File.join @dir, ".git"
         FileUtils.mkdir_p @dir

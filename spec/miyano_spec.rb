@@ -14,9 +14,12 @@ RSpec.describe Miyano do
   end
 
   it "can use site global share variable" do
-    @site
+    #expect(@@site.class).to eql Miyano::Site
   end
 
+  it "can build the world" do
+    Miyano::Builder.new.build_the_world
+  end
 end
 
 

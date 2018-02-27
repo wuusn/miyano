@@ -1,8 +1,13 @@
 module Miyano
   class Site
 
+    def initialize
+      @posts = []
+      @tags = {}
+    end
+
     def posts
-      @posts ||= []
+      @posts
     end
 
     def add_post(post)
@@ -10,7 +15,7 @@ module Miyano
       @posts.sort_by! {|p| [p.mod_date, p.cre_date]}
       @posts.reverse!
 
-      post.tags.each do |tag|
+      post._tags.each do |tag|
         if @tags.include? tag
           @tags[tag] += 1
         else
@@ -22,7 +27,7 @@ module Miyano
     end
 
     def tags
-      @tags ||= {}
+      @tags
     end
   end
 end
