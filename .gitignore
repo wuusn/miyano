@@ -16,3 +16,5 @@
 .rspec
 /bin/
 Gemfile.lock
+/post/
+/layout/

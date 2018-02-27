@@ -39,4 +39,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "nokogiri"
   spec.add_dependency "sass"
   spec.add_dependency "tilt"
+  spec.add_dependency "rubyzip"
 end
