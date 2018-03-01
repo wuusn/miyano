@@ -4,7 +4,7 @@
     <title>Miyano Shiho</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="../default.css" type="text/css">
+    <link rel="stylesheet" href="/default.css" type="text/css">
   </head>
   <body>
     <main class="note-wrapper">
@@ -12,7 +12,7 @@
       <article>
       <% posts.each do |post| %>
         <div>
-          <a href=<%= post.url%> ><div><%= post.title %></div></a>
+          <a href=<%= post.url.inspect%> ><div><%= post.title %></div></a>
           <div><%= post.date %></div>
         </div>
       <% end %>

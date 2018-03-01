@@ -1,4 +1,5 @@
 require "thor"
+require "webrick"
 require "miyano/cli/build"
 require "miyano/cli/push"
 

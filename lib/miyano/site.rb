@@ -4,6 +4,7 @@ module Miyano
     def initialize
       @posts = []
       @tags = {}
+      @current_tag = "home"
     end
 
     def posts
@@ -28,6 +29,14 @@ module Miyano
 
     def tags
       @tags
+    end
+
+    def current_tag
+      @current_tag
+    end
+
+    def current_tag=(tag)
+      @current_tag = tag
     end
   end
 end
