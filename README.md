@@ -2,7 +2,9 @@
 
 See example https://yuxin.io
 
-I treat this as a extension for my[Bear App](http://www.bear-writer.com).
+I treat this as an extension for my [Bear App](http://www.bear-writer.com).
+
+Let me focus on writting the right thing.
 
 Export the bearnote file and depoly on Github Pages, isn't that cool?
 
@@ -12,7 +14,7 @@ Export the bearnote file and depoly on Github Pages, isn't that cool?
 
 ## Usage
 
-I write an [introduce](https://yuxin.io/introduce_miyano/) in Chinese.
+I wrote an [introduce](https://yuxin.io/introduce_miyano/) in Chinese.
 
 ### Create new blog
 
