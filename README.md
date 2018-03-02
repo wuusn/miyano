@@ -34,7 +34,7 @@ Then open browser and go to `localhost:8000`
 
 ### Push to Github Pages
 
-#### DON'T support Project Pages
+#### not support Project Pages
 
     $ miyano push
     
