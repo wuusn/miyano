@@ -9,7 +9,7 @@ module Miyano
     def clean
       if Dir.exist?("_site")
         FileUtils.cd "_site" do
-          `rm -rf *`
+          `rm -rf !\\(CNAME\\)`
         end
       end
     end

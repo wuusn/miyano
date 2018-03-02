@@ -17,3 +17,5 @@
 /bin/
 Gemfile.lock
 /_site/
+/post/
+/layout/

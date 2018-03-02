@@ -7,4 +7,4 @@ gemspec
 
 # local bear test
 
-gem "beardown", :path => "/Users/yuxin/Lab/beardown"
+#gem "beardown", :path => ""

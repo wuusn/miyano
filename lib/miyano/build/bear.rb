@@ -10,7 +10,12 @@ module Miyano
       files.each do |f|
         name = File.basename(f, ".*")
         bearnote = Zip::File.open f
-        assets = bearnote.glob("#{name}.bearnote/assets/*")
+
+        # the name of the zip file maybe different from the name of zip dir
+        # i.e. first zip as `foo.zip`, the zip dir is `foo`, then rename to `bar.zip`, the zip dir still remains `foo`
+        zipdir = File.dirname bearnote.entries[0].name
+        #zipdir = zipdir.force_encoding "UTF-8"
+        assets = bearnote.glob("#{zipdir}/assets/*")
         assets.each do |asset|
           dir = "_site/#{name}/assets"
           FileUtils.mkdir_p dir
@@ -18,9 +23,9 @@ module Miyano
           asset.extract path unless File.exist? path
         end
 
-        text = bearnote.glob("#{name}.bearnote/text.txt")
+        text = bearnote.glob("#{zipdir}/text.txt")
                        .first.get_input_stream
-                       .read
+                       .read.force_encoding("UTF-8")
 
         FileUtils.mkdir_p "_site/#{name}"
         File.open("_site/#{name}/index.html", "w") do |html|
@@ -32,6 +37,7 @@ module Miyano
     def render_bear(f, text)
       doc = Beardown.new text
       name = File.basename f, ".*"
+      name = name
       cre_date = File.birthtime f
       mod_date = File.mtime f
 

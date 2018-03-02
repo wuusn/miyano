@@ -1,11 +1,19 @@
 #!/usr/bin/env ruby
 
 require "miyano"
-# require "miyano/cli"
-# require "miyano/cli/build"
-#require "miyano/cli/push"
 
 if ARGV.empty?
+  conf = File.join Dir.home, ".miyano"
+  if File.exist? conf
+    blog_root = File.read(conf).strip
+    unless blog_root.empty?
+      ARGV[0] = "push"
+      FileUtils.cd blog_root do
+        Miyano::CLI.start
+      end
+      return
+    end
+  end
 end
-
 Miyano::CLI.start
+

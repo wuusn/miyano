@@ -1,6 +1,8 @@
 module Miyano
   class Push < Thor::Group
-    @dir = "_site".freeze
+    def configs
+      @dir = "_site".freeze
+    end
 
     def check_root
       unless Dir.exist?("post") and Dir.exist?("layout")
@@ -9,7 +11,7 @@ module Miyano
     end
 
     def check_if_first
-      unless Dir.exits? File.join @dir, ".git"
+      unless Dir.exist? File.join @dir, ".git"
         FileUtils.mkdir_p @dir
         FileUtils.cd @dir do
           p "Enter the url of your Github Pages repo"
@@ -19,7 +21,7 @@ module Miyano
           `git init`
           `git remote add origin #{repo}`
           `git pull origin master`
-          `rm -rf *`
+          `rm -rf !\\(CNAME\\)`
         end
       end
     end

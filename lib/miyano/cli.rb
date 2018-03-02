@@ -14,6 +14,7 @@ module Miyano
     def new(dir)
       url = "https://github.com/wuusn/miyano_template.git"
       `git clone --depth 1 #{url} #{dir}`
+      `rm -rf #{dir}/.git*`
     end
 
     desc "try", "try as a local web server"

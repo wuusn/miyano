@@ -9,7 +9,7 @@ RSpec.describe Miyano do
   it "can use beardown" do
     require "beardown"
     input = "* list1\n\n\n* beardown\n"
-    output = "<ul><li>list1</li></ul>\n<br><br>\n<ul><li>beardown</li></ul>\n"
+    output = "<ul><li>list1</li></ul>\n<br>\n<br>\n<ul><li>beardown</li></ul>\n"
     expect(Beardown.new(input).to_html).to eql output
   end
 
