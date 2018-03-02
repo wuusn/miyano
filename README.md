@@ -40,7 +40,7 @@ Then open browser and go to `localhost:8000`
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[wuusn]/miyano.
+Bug reports and pull requests are welcome on GitHub at https://github.com/wuusn/miyano.
 
 ## License
 
