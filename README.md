@@ -2,7 +2,7 @@
 
 See example https://yuxin.io
 
-I treat this as an extension for my [Bear App](http://www.bear-writer.com).
+I treat this as an extension for my love [Bear App](http://www.bear-writer.com).
 
 Let me focus on writting the right thing.
 
