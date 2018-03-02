@@ -36,7 +36,9 @@ Then open browser and go to `localhost:8000`
 
 #### DON'T support Project Pages
 
-    $ miyabo push
+    $ miyano push
+    
+#### miyano not miyabo
 
 ## Contributing
 
