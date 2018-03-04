@@ -21,7 +21,11 @@ module Miyano
           `git init`
           `git remote add origin #{repo}`
           `git pull origin master`
-          `rm -rf !\\(CNAME\\)`
+          files = Dir["*"]
+          files.delete "CNAME"
+          files.each do |f|
+            FileUtils.rm_rf f
+          end
         end
       end
     end

@@ -9,7 +9,11 @@ module Miyano
     def clean
       if Dir.exist?("_site")
         FileUtils.cd "_site" do
-          `rm -rf !\\(CNAME\\)`
+          files = Dir["*"]
+          files.delete "CNAME"
+          files.each do |f|
+            FileUtils.rm_rf f
+          end
         end
       end
     end
