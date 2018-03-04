@@ -14,7 +14,7 @@ Say goodbye to ugly writting experience.
 
 Say goodbye to COMPLEX and USELESS.
 
-Just export bearnote files and depoly them on Github Pages.
+Just export bearnote files and deploy them on Github Pages.
 
 Just focus on writting...
 
