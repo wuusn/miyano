@@ -24,7 +24,7 @@ RSpec.describe Miyano do
   end
 
   it "can build the world" do
-    #Miyano::Builder.new.build_the_world
+    Miyano::Builder.new.build_the_world
   end
 
   it "can delete cached files and dirs when building" do

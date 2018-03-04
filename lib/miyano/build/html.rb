@@ -17,7 +17,7 @@ module Miyano
       cre_date = File.birthtime f
       mod_date = File.mtime f
 
-      post = Post.new name, cre_date, mod_date
+      post = Post.new name, cre_date, mod_date, name
       @site.add_post post
     end
   end
