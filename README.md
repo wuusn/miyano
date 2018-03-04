@@ -4,9 +4,21 @@ See example https://yuxin.io
 
 I treat this as an extension for my love [Bear App](http://www.bear-writer.com).
 
-Let me focus on writting the right thing.
+Let me focus on writting the right thing. Once setup, the blog system will never distract you.
 
-Export the bearnote file and depoly on Github Pages, isn't that cool?
+Say goodbye to [Yaml Front Matter](https://jekyllrb.com/docs/frontmatter/). (setting up title, tags, date berfore the content everytime)
+
+Say goodbye to dealing with the files manually. (pictures and markdown files)
+
+Say goodbye to ugly writting experience.
+
+Say goodbye to COMPLEX and USELESS.
+
+Just export bearnote files and depoly them on Github Pages.
+
+Just focus on writting...
+
+Isn't that cool?
 
 ## Installation
 
@@ -39,6 +51,28 @@ Then open browser and go to `localhost:8000`
     $ miyano push
     
 #### miyano not miyabo
+
+## Tips
+
+### Just Miyano
+
+Specify your blog's root and Save your time.
+
+First, create a file named `.miyano` at your **home** directory.
+
+Then, open it and write in the **absolute address of your blog** like `/Users/dandy/where/is/myblog`
+
+Save and quit.
+
+After that Miyano will remember your blog directory,
+
+Once you want to update your blog, just type 6 letters `miyano`,
+
+you don't need to `cd` and `miyano push` again and again.
+
+It saves my time.
+
+NOTE: just `miyano` can use in this way, the other commands `miyano [push|build|try]` cannot use in this way.
 
 ## Contributing
 
