@@ -13,13 +13,18 @@ RSpec.describe Miyano do
     expect(Beardown.new(input).to_html).to eql output
   end
 
+  it "can get tag from bearnote" do
+    require "beardown"
+    bear = Beardown.new "#tag1/tag2/tag3"
+    expect(bear.tags).to eql ["tag1", "tag1/tag2", "tag1/tag2/tag3"]
+  end
+
   it "can use site global share variable" do
     #expect(@@site.class).to eql Miyano::Site
   end
 
   it "can build the world" do
     Miyano::Builder.new.build_the_world
-    # help
   end
 end
 

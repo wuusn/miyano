@@ -4,7 +4,6 @@ module Miyano
     def initialize
       @posts = []
       @tags = {}
-      @current_tag = "home"
     end
 
     def posts
@@ -16,19 +15,43 @@ module Miyano
       @posts.sort_by! {|p| [p.mod_date, p.cre_date]}
       @posts.reverse!
 
-      post._tags.each do |tag|
+      post.tags.each do |tag|
         if @tags.include? tag
           @tags[tag] += 1
         else
           @tags[tag] = 1
         end
       end
-      @tags = @tags.sort_by {|_, value| -value}
+      @tags = @tags.sort_by {|key, value| [-value, key.length]}
                    .to_h
     end
 
-    def tags
+    def _tags
       @tags
+    end
+
+    def tags
+      prefix = @current_tag
+      ret_tags = []
+
+      if prefix.nil?
+        @tags.each do |_t, _|
+          t = _t.split("/").first
+          ret_tags << t unless ret_tags.include? t
+        end
+        return ret_tags
+      end
+
+      @tags.each do |_t, _|
+        next if _t.length <= prefix.length
+        if _t.start_with? prefix
+          t = _t.delete_prefix prefix
+          t = t.delete_prefix! "/"
+          t = t.split("/").first if t
+          ret_tags << t unless t.nil? or ret_tags.include? t
+        end
+      end
+      return  ret_tags
     end
 
     def current_tag

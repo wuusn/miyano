@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
   if spec.respond_to?(:metadata)
-    spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
+    spec.metadata["allowed_push_host"] = "https://rubygems.org"
   else
     raise "RubyGems 2.0 or newer is required to protect against " \
       "public gem pushes."
@@ -33,10 +33,10 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "cucumber", "~> 3.1.0"
   spec.add_development_dependency "aruba", "~> 0.14.3"
 
-  spec.add_dependency "thor"
-  spec.add_dependency "sass"
-  spec.add_dependency "tilt"
-  spec.add_dependency "rubyzip"
-  spec.add_dependency "rouge"
-  spec.add_dependency "beardown"
+  spec.add_dependency "thor", "~> 0.20.0"
+  spec.add_dependency "sass", "~> 3.5.5"
+  spec.add_dependency "tilt", "~> 2.0.8"
+  spec.add_dependency "rubyzip", "~> 1.2.1"
+  spec.add_dependency "rouge", "~> 3.1.1"
+  spec.add_dependency "beardown", "0.1.2"
 end

@@ -17,14 +17,8 @@ module Miyano
       @mod_date.strftime format
     end
 
-    # tags as Array
-    def _tags
-      @tags
-    end
-
-    # tags as String
     def tags
-      @tags.join ", "
+      @tags
     end
 
     def summary
