@@ -9,6 +9,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["wuusin@gmail.com"]
 
   spec.summary       = %q{A BearNote Blog system depoly on Github Pages.}
+  spec.homepage      = "https://github.com/wuusn/miyano"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -38,5 +39,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency "tilt", "~> 2.0.8"
   spec.add_dependency "rubyzip", "~> 1.2.1"
   spec.add_dependency "rouge", "~> 3.1.1"
-  spec.add_dependency "beardown", "0.1.2"
+  spec.add_dependency "beardown", ">= 0.1.4"
+  spec.add_dependency "beardown-compat", ">= 0.1.2"
 end

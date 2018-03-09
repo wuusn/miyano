@@ -1,3 +1,4 @@
+$VERBOSE = nil
 require "miyano/version"
 require "miyano/site"
 require "miyano/post"
