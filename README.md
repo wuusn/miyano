@@ -43,7 +43,7 @@ Then open browser and go to `localhost:8000`
 
     $ miyano push
 
-## Give a Star to Support me!
+**Give a Star to Support me!**
 
 ## Contributing
 
