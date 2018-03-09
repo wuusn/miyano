@@ -11,8 +11,10 @@ module Miyano
     end
 
     desc "new [DIR]", "create new blog"
+    method_option :compat, :aliases => "-m", :desc => "Markdown Compatibility Mode"
     def new(dir)
-      url = "https://github.com/wuusn/miyano_template.git"
+      compat = options[:compat]? "_compat" : ""
+      url = "https://github.com/wuusn/miyano_template#{compat}.git"
       `git clone --depth 1 #{url} #{dir}`
       `rm -rf #{dir}/.git*`
     end

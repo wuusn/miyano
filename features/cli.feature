@@ -2,8 +2,9 @@ Feature: Miyano Cli
 
   Scenario: Show version
     When I run `miyano version`
-    Then the output should contain "Miyano 0.2"
+    Then the output should contain "Miyano 0.3.0"
 
-  Scenario: Create a new project
-    When I run `miyano`
-    Then the output should contain "hahah"
+  Scenario: New Project with markdown compatibility mode
+    When I run `miyano new PROJECT -m`
+    Then I cd to "PROJECT/post"
+    And the file ".compat" should exist

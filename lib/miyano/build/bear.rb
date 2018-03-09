@@ -6,6 +6,7 @@ module Miyano
   class Builder
     protected
     def build_bear
+      require "beardown/compat" if File.exist? "post/.compat"
       files = Dir["post/*.bearnote"]
       files.each do |f|
         name = File.basename(f, ".*")
