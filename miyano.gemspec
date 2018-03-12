@@ -41,4 +41,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rouge", "~> 3.1.1"
   spec.add_dependency "beardown", ">= 0.1.4"
   spec.add_dependency "beardown-compat", ">= 0.1.2"
+
+  spec.required_ruby_version = ">= 2.5.0"
 end
