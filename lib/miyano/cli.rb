@@ -13,9 +13,9 @@ module Miyano
     desc "new [DIR]", "create new blog"
     method_option :compat, :aliases => "-m", :desc => "Markdown Compatibility Mode"
     def new(dir)
-      compat = options[:compat]? "_compat" : ""
-      url = "https://github.com/wuusn/miyano_template#{compat}.git"
+      url = "https://github.com/wuusn/miyano_template.git"
       `git clone --depth 1 #{url} #{dir}`
+      `touch #{dir}/post/.compat` if options[:compat]
       `rm -rf #{dir}/.git*`
     end
 
