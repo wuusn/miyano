@@ -14,8 +14,9 @@ module Miyano
 
         # the name of the zip file maybe different from the name of zip dir
         # i.e. first zip as `foo.zip`, the zip dir is `foo`, then rename to `bar.zip`, the zip dir still remains `foo`
-        zipdir = File.dirname bearnote.entries[0].name
+        #zipdir = File.dirname bearnote.entries[0].name
         #zipdir = zipdir.force_encoding "UTF-8"
+        zipdir = getZipDir bearnote.entries[0].name
         assets = bearnote.glob("#{zipdir}/assets/*")
         assets.each do |asset|
           dir = "_site/#{name}/assets"
@@ -48,6 +49,13 @@ module Miyano
 
       template = Tilt.new "layout/post.html.erb"
       template.render post
+    end
+
+    def getZipDir(str)
+      while(str.include? "/")
+        str = File.dirname str
+      end
+      return str
     end
   end
 end
