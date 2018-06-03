@@ -18,8 +18,8 @@ module Miyano
         #zipdir = zipdir.force_encoding "UTF-8"
         zipdir = getZipDir bearnote.entries[0].name
         assets = bearnote.glob("#{zipdir}/assets/*")
+        dir = "_site/#{name}/assets"
         assets.each do |asset|
-          dir = "_site/#{name}/assets"
           FileUtils.mkdir_p dir
           path = File.join dir, File.basename(asset.name)
           asset.extract path unless File.exist? path
@@ -33,6 +33,7 @@ module Miyano
         File.open("_site/#{name}/index.html", "w") do |html|
           html.write render_bear(f, text)
         end
+        auto_orient_imgs(dir) if Dir.exist? dir
       end
     end
 
@@ -57,5 +58,24 @@ module Miyano
       end
       return str
     end
+
+    def auto_orient_imgs(dir)
+      return unless check_imagemagick
+      imgs = Dir["#{dir}/*.{jpg,jpeg,JPG,JPEG}"]
+      imgs.each do |img|
+        `convert -auto-orient #{img} #{img}`
+      end
+    end
+
+    def check_imagemagick
+      system "convert -version >/dev/null"
+      system "brew install imagemagick graphicsmagick" unless $?.success?
+      unless $?.success?
+        system "/usr/bin/ruby -e '$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)'"
+        system "brew install imagemagick graphicsmagick" if $?.success?
+      end
+      system "convert -version >/dev/null"
+    end
+
   end
 end
