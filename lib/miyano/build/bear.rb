@@ -63,7 +63,7 @@ module Miyano
       return unless check_imagemagick
       imgs = Dir["#{dir}/*.{jpg,jpeg,JPG,JPEG}"]
       imgs.each do |img|
-        `convert -auto-orient #{img} #{img}`
+        `convert -auto-orient #{img.inspect} #{img.inspect}`
       end
     end
 
