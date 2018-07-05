@@ -1,7 +1,5 @@
 # Miyano
 
-Example(my blog): https://yuxin.io
-
 Not a big thing like [Jekyll](https://jekyllrb.com) which lets you feel free to deep DIY you blog.
 
 The big thing brings free but also along with the complex.
