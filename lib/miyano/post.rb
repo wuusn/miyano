@@ -22,7 +22,17 @@ module Miyano
     end
 
     def summary
-      @text[0..30]
+      @text[(@title.length+2)..-1].delete "#*"
+    end
+
+    def content_no_assets
+      res = @content.gsub /<p.*?\=\"assets\/.*?p>/, ""
+      res[(@title.length+9)..-1]
+    end
+
+    def content_for_homepage
+      res=@content.gsub /\=\"assets\//, %(="#{@url}assets/)
+      res[(@title.length+9)..-1]
     end
 
   end
