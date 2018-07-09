@@ -1,23 +1,31 @@
 # Miyano
 
-Not a big thing like [Jekyll](https://jekyllrb.com) which lets you feel free to deep DIY you blog.
-
-The big thing brings free but also along with the complex.
-
 This small tool is designed for [Bear](http://www.bear-writer.com) lovers.
 
 Focus on the right thing - writing the content.
 
+To use this tool, you need to export your bearnotes and run some bash commands in the Termminal App.
+
 ## Requirements
 
 - MacOS
-- Ruby >= 2.5.0
+- [Ruby >= 2.5.0](https://gorails.com/setup/osx/10.13-high-sierra/#ruby)
 
 ## Installation
 
     $ gem install miyano
 
 ## Usage
+
+### About the commands
+    $ miyano help
+    Commands:
+      miyano build           # build posts and layouts
+      miyano help [COMMAND]  # Describe available commands or one specific command
+      miyano new [DIR]       # create new blog
+      miyano push            # push to Github Pages
+      miyano try             # try as a local web server
+      miyano version         # show version
 
 ### Create new blog
 
@@ -33,9 +41,13 @@ If you use Bear in **Markdown Compatibility Mode**, use option `-m`
 
 ### Build and Try it
 
-    $ miyano Build // convert the bearnotes to html files
+    $ miyano build // convert the bearnotes to html files
 
     $ miyano try // start a local server
+    
+Or  
+
+    $ miyano build; miyano try
 
 Then open browser and go to `localhost:8000`
 `Ctrl + C` to Quit
@@ -44,14 +56,14 @@ Then open browser and go to `localhost:8000`
 
     $ miyano push
 
-### Serve at VPS (Not Recommended)
-(cause it's not free and not stable as Github Pages)
+### Serve at VPS 
 
-You need to config the git server at the VPS, and `miyano push` to that server.
-Then don't use the `miyano try` as a Web Server, use `Nginx` instead.
+You need to config the *git* server at your VPS to sync the static html files, and `miyano push` to that server.
+Then don't use the `miyano try` as a Web Server, use `Nginx` as a proxy instead.
 
 ### Themes
-Not friendly enough.
+
+For programmers.(Html, Css, and Basic OOP)
 
 The `layout` folder determines how the blog looks like. 
 I use `erb` as a template.
@@ -60,6 +72,7 @@ The `index.html.erb` has the instance of Class `Site`, check the methods you can
 
 Similarly, the `post.html.erb` has a instance of Class `Post`, check [lib/miyano/post.rb](https://github.com/wuusn/miyano/blob/master/lib/miyano/post.rb).
 
+Check more on the [Wiki Page](https://github.com/wuusn/miyano/wiki/Theme-and-Layout)
 
 ## Parser of  Polar Bear Markup Language
 I made these parsers, [beardown](https://github.com/wuusn/beardown) and [beardown-compat](https://github.com/wuusn/beardown-compat).
