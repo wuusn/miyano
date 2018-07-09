@@ -4,7 +4,7 @@ This small tool is designed for [Bear](http://www.bear-writer.com) lovers.
 
 Focus on the right thing - writing the content.
 
-To use this tool, you need to export your bearnotes and run some bash commands in the Terminal App.
+To use this tool, you need to export your bearnotes and run some simple commands in the Terminal App.
 
 ## Requirements
 
