@@ -38,6 +38,8 @@ If you use Bear in **Markdown Compatibility Mode**, use option `-m`
 ### Change dir
 
     $ cd myblog
+    
+### Open Bear App and Export your selected notes into the Post Dictionary
 
 ### Build and Try it
 
